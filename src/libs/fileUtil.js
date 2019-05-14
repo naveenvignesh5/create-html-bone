@@ -1,10 +1,16 @@
 "use strict";
 
 let fs = require('fs');
+let path = require('path');
 
-let createFile = (path, data, cb) => {
-    if (fs.existsSync())
-    fs.writeFile(path, data, cb);
+let { logError, logSuccess } = require('./util');
+
+let createFile = (filePath, data) => {
+    let dirPath = path.dirname(filePath);
+    fs.mkdir(dirPath, { recursive: true }, (err) => {
+        if (err) logError(err);
+        else fs.writeFileSync(filePath, data);
+    });
 };
 
 module.exports = {
