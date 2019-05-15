@@ -33,8 +33,13 @@ const generateCSS = (app) => {
     fileUtil.createFile(cssFile, cssFileData);
 };
 
+const generateFavicon = (app) => {
+    fileUtil.copyFile(`${__dirname}/../assets/favicon.ico`, `${process.cwd()}/${app}/favicon.ico`);
+};
+
 module.exports = {
     generateHTML,
     generateJS,
     generateCSS,
+    generateFavicon,
 };

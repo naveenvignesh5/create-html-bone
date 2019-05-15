@@ -13,6 +13,9 @@ let createFile = (filePath, data) => {
     });
 };
 
+let copyFile = (src, dest) => fs.copyFileSync(src, dest);
+
 module.exports = {
     createFile,
+    copyFile,
 };
