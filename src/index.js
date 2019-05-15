@@ -10,7 +10,8 @@ let prompt = inquirer.createPromptModule();
 
 let run = async () => {
     try {
-        console.log(chalk.blue.bold("Choose a CSS Framework"));
+        console.log(chalk.blue.bold("Enter project details..."));
+
         let { app = '' } = await prompt([
             {
                 type: "input",
