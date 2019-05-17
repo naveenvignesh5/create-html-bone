@@ -1,56 +1,18 @@
 #!/usr/bin/env node
+let program = require('commander');
+let process = require('process');
+let pkgVersion = require('root-require')('package.json').version;
 
-let inquirer = require('inquirer');
-let chalk = require('chalk');
+let { runByCommandLine, runByInquirer } = require('./libs/commands');
 
-let { generateHTML, generateJS, generateCSS, generateFavicon } = require('./libs/generate');
-let { logError } = require('./libs/util');
+program
+    .version(pkgVersion)
+    .option('-n, --name [value]', "Name of the project")
+    .option('-c, --css [value]', "CSS Framework (Bootstrap 4, Bulma, Materialize, Pure)")
+    .option('-j, --jquery', "Generate js with JQuery template")
+    .action((res) => {
+        if (res.args.length > 0) runByCommandLine(res);
+        else runByInquirer();
+    });
 
-let prompt = inquirer.createPromptModule();
-
-let run = async () => {
-    try {
-        console.log(chalk.blue.bold("Enter project details..."));
-
-        let { app = '' } = await prompt([
-            {
-                type: "input",
-                name: "app",
-                message: "What is the name of the project ?"
-            },
-        ]);
-        
-        if (!app) {
-            logError("Enter a project name !!!");
-            return;
-        }
-
-        let { css = '', jquery = false } = await prompt([
-            {
-                type: "list",
-                choices: ["Bootstrap 4", "Bulma", "Materialize", "None"],
-                name: "css",
-                message: "What is your preferred CSS framework ?"
-            },
-            {
-                type: "confirm",
-                name: "jquery",
-                message: "Generate with jQuery Templated javascript",
-            },
-        ]);
-
-        if (!css) {
-            logError("Select a CSS framework");
-            return;
-        }
-
-        generateHTML(app, css);
-        generateJS(app, jquery);
-        generateCSS(app);
-        generateFavicon(app);
-    } catch (err) {
-        logError(err);
-    }
-}
-
-run();
+program.parse(process.argv);

@@ -14,7 +14,8 @@
     "chalk": "^2.4.2",
     "commander": "^2.20.0",
     "figlet": "^1.2.1",
-    "inquirer": "^6.3.1"
+    "inquirer": "^6.3.1",
+    "root-require": "^0.3.1"
   },
   "bin": {
     "create-html-template": "./src/index.js"
