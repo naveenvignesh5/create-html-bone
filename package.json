@@ -1,5 +1,5 @@
 {
-  "name": "create-html-template",
+  "name": "create-html-bone",
   "version": "1.0.0",
   "description": "Basic CLI to generate HTML Boilerplate",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "start": "node ./src/",
     "postinstall": "npm link"
   },
-  "keywords": [],
+  "keywords": ["cli", "html", "command-line", "cmd", "terminal", "css"],
   "author": "",
   "license": "ISC",
   "dependencies": {
