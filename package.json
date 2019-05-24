@@ -1,11 +1,12 @@
 {
   "name": "create-html-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Basic CLI to generate HTML Boilerplate",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./src/"
+    "start": "node ./src/",
+    "postinstall": "npm link"
   },
   "keywords": [],
   "author": "",

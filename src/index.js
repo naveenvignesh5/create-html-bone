@@ -11,7 +11,8 @@ program
     .option('-c, --css [value]', "CSS Framework (Bootstrap 4, Bulma, Materialize, Pure)")
     .option('-j, --jquery', "Generate js with JQuery template")
     .action((res) => {
-        if (res.args.length > 0) runByCommandLine(res);
+        const { css = '', name = '', jquery = false } = res;
+        if (css || name || jquery) runByCommandLine(res);
         else runByInquirer();
     });
 
