@@ -4,13 +4,15 @@ let templates = require('../templates/template');
 let fileUtil = require('./fileUtil');
 
 const generateHTML = (app, cssType) => {
+    let css = cssType.toLowerCase().trim();
+
     let htmlFile = `${process.cwd()}/${app}/index.html`;
 
     let htmlFileData = '';
 
-    if (cssType === 'Bootstrap 4') htmlFileData = templates.bootstrap.html;
-    else if (cssType === 'Bulma') htmlFileData = templates.bulma.html;
-    else if (cssType === 'Materialize') htmlFileData = templates.materialize.html;
+    if (css === 'bootstrap') htmlFileData = templates.bootstrap.html;
+    else if (css === 'bulma') htmlFileData = templates.bulma.html;
+    else if (css === 'materialize') htmlFileData = templates.materialize.html;
 
     fileUtil.createFile(htmlFile, htmlFileData);
 };

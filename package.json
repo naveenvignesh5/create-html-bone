@@ -8,7 +8,14 @@
     "start": "node ./src/",
     "postinstall": "npm link"
   },
-  "keywords": ["cli", "html", "command-line", "cmd", "terminal", "css"],
+  "keywords": [
+    "cli",
+    "html",
+    "command-line",
+    "cmd",
+    "terminal",
+    "css"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +26,6 @@
     "root-require": "^0.3.1"
   },
   "bin": {
-    "create-html-template": "./src/index.js"
+    "create-html-bone": "./src/index.js"
   }
 }
