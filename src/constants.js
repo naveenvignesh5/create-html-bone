@@ -1,4 +1,4 @@
-const CSS_TYPES = ["Bootstrap 4", "Bulma", "Materialize", "None"];
+const CSS_TYPES = ["bootstrap", "bulma", "materialize", "None"];
 
 module.exports = {
     CSS_TYPES,

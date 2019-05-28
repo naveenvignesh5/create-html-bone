@@ -4,16 +4,15 @@ let process = require('process');
 let pkgVersion = require('root-require')('package.json').version;
 
 let { runByCommandLine, runByInquirer } = require('./libs/commands');
+let { validateName } = require('./libs/util');
 
 program
     .version(pkgVersion)
     .option('-n, --name [value]', "Name of the project")
     .option('-c, --css [value]', "CSS Framework (Bootstrap 4, Bulma, Materialize, Pure)")
     .option('-j, --jquery', "Generate js with JQuery template")
-    .action((res) => {
-        const { css = '', name = '', jquery = false } = res;
-        if (css || name || jquery) runByCommandLine(res);
-        else runByInquirer();
-    });
+    .parse(process.argv);
 
-program.parse(process.argv);
+const { css = '', name = '', jquery = false } = program;
+if ((name && validateName(name)) || css  || jquery) runByCommandLine(program);
+else runByInquirer();

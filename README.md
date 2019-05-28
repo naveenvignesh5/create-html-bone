@@ -4,7 +4,7 @@ Simple CLI to generate boiler plate for basic html projects.
 
 ### How to use ?
 
-Calling for help
+Command Line Instructions
 ```shell
 create-html-bone -h
 
@@ -20,6 +20,10 @@ Generating Template from command tools
 
 ```shell
 create-html-bone -n demo -c bulma -jquery
+
+create-html-bone --name demo -c bootstrap
 ```
 
 Generating Template from Interactive Console
+
+![](demo/demo.gif)

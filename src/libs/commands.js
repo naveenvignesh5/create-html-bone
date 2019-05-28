@@ -67,7 +67,7 @@ let runByCommandLine = async (args) => {
     }
 
     if (!css) {
-        logError("Select a CSS framework");
+        logError("Enter a CSS framework");
         return;
     }
     
