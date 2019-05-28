@@ -26,4 +26,4 @@ create-html-bone --name demo -c bootstrap
 
 Generating Template from Interactive Console
 
-![](demo/demo.gif)
+![](https://github.com/naveenvignesh5/create-html-template/blob/master/demo/demo.gif?raw=true)
