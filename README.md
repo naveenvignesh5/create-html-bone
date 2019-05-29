@@ -34,3 +34,14 @@ create-html-bone --name demo -c bootstrap
 ![](https://github.com/naveenvignesh5/create-html-template/blob/master/demo/demo.gif?raw=true)
 
 
+### Authors
+
+* Naveen Vignesh.B - Initial Work
+
+### License
+
+This project is licensed unser ISC License - see the [License.md](./License.md) file for details.
+
+### Acknowledgments
+
+* Thanks to anyone who has contributed to code.
