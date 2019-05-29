@@ -118,6 +118,30 @@ module.exports = {
   </body>
 </html>`
   },
+  basic: {
+    html: (jquery = false) => `<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+    <!-- Optional JavaScript -->
+    ${jquery ? `<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>`: ``}
+    
+    <!-- Custom Script -->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>`
+  },
   jquery: `$(document).ready(function () {
   console.log("Hello World !!!");
 });`,

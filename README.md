@@ -1,10 +1,16 @@
-### Basic HTML Boilerplate Generator
+## Basic HTML Boilerplate Generator
 
 Simple CLI to generate boiler plate for basic html projects.
 
+### Installation
+
+```shell
+npm i -g create-html-bone
+```
+
 ### How to use ?
 
-Command Line Instructions
+**Command Line Instructions**
 ```shell
 create-html-bone -h
 
@@ -16,14 +22,15 @@ Options:
   -h, --help          output usage information
 ```
 
-Generating Template from command tools
-
+**Generating Template from command tools**
 ```shell
 create-html-bone -n demo -c bulma -jquery
 
 create-html-bone --name demo -c bootstrap
 ```
 
-Generating Template from Interactive Console
+**Generating Template from Interactive Console**
 
 ![](https://github.com/naveenvignesh5/create-html-template/blob/master/demo/demo.gif?raw=true)
+
+

@@ -3,7 +3,7 @@ let process = require('process');
 let templates = require('../templates/template');
 let fileUtil = require('./fileUtil');
 
-const generateHTML = (app, cssType) => {
+const generateHTML = (app, cssType = '', jquery = false) => {
     let css = cssType.toLowerCase().trim();
 
     let htmlFile = `${process.cwd()}/${app}/index.html`;
@@ -13,6 +13,7 @@ const generateHTML = (app, cssType) => {
     if (css === 'bootstrap') htmlFileData = templates.bootstrap.html;
     else if (css === 'bulma') htmlFileData = templates.bulma.html;
     else if (css === 'materialize') htmlFileData = templates.materialize.html;
+    else htmlFileData = templates.basic.html(jquery);
 
     fileUtil.createFile(htmlFile, htmlFileData);
 };
