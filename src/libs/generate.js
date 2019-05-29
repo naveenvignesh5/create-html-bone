@@ -36,13 +36,23 @@ const generateCSS = (app) => {
     fileUtil.createFile(cssFile, cssFileData);
 };
 
-const generateFavicon = (app) => {
+const generateAuxFiles = (app, options = {}) => {
     fileUtil.copyFile(`${__dirname}/../assets/favicon.ico`, `${process.cwd()}/${app}/favicon.ico`);
+    let parentDir = `${process.cwd()}/${app}`;
+
+    // generating gulp file
+    if (options.gulp) {
+        fileUtil.createFile(`${parentDir}/gulpfile.js`, templates.gulp);
+        fileUtil.createFile(`${parentDir}/package.json`, templates.pkgJson({ name: app }));
+        fileUtil.createFile(`${parentDir}/.gitignore`, templates.gitIgnore)
+
+        fileUtil.mkdir(`${process.cwd()}/${app}/assets`);
+    }
 };
 
 module.exports = {
     generateHTML,
     generateJS,
     generateCSS,
-    generateFavicon,
+    generateAuxFiles,
 };

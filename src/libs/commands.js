@@ -2,18 +2,19 @@ let chalk = require('chalk');
 let inquirer = require('inquirer');
 let figlet = require('figlet');
 
-let { generateHTML, generateJS, generateCSS, generateFavicon } = require('./generate');
+let { generateHTML, generateJS, generateCSS, generateAuxFiles } = require('./generate');
 let { logError, logSuccess } = require('./util');
 
 let { CSS_TYPES } = require('./../constants');
 
 let prompt = inquirer.createPromptModule();
 
-let generateProject = (app, css, jquery) => {
+let generateProject = (app, options) => {
+    const { css, jquery } = options;
     generateHTML(app, css, jquery);
     generateJS(app, jquery);
     generateCSS(app);
-    generateFavicon(app);
+    generateAuxFiles(app, options);
 }
 
 let runByInquirer = () => {
@@ -39,7 +40,7 @@ let runByInquirer = () => {
                 return;
             }
     
-            let { css = '', jquery = false } = await prompt([
+            let options = await prompt([
                 {
                     type: "list",
                     choices: CSS_TYPES,
@@ -51,14 +52,19 @@ let runByInquirer = () => {
                     name: "jquery",
                     message: "Generate with jQuery Templated javascript",
                 },
+                {
+                    type: "confirm",
+                    name: "gulp",
+                    message: "Generate with gulp file",
+                }
             ]);
     
-            if (!css) {
+            if (!options.css) {
                 logError("Select a CSS framework");
                 return;
             }
     
-            generateProject(app, css, jquery);
+            generateProject(app, options);
     
             logSuccess("Template has been generated.");
         } catch (err) {
@@ -69,13 +75,13 @@ let runByInquirer = () => {
 
 let runByCommandLine = async (args) => {
     try {
-        let { name = '', css = '', jquery = false } = args;
+        let { name = '' } = args;
         if (!name) {
             logError("Enter a project name !!!");
             return;
         }
         
-        generateProject(name, css, jquery);
+        generateProject(name, args);
     
         logSuccess("Template has been generated.");
     } catch (err) {

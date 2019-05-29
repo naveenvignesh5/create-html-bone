@@ -149,4 +149,79 @@ module.exports = {
 `(function() {
   console.log("Hello World  !!!");
 })();`,
+  gulp: `const gulp = require('gulp');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const minify = require('gulp-minify-css');
+const babel = require('gulp-babel');
+
+gulp.task('js', function(done){
+  gulp.src('js/*.js')
+    .pipe(concat('scripts.js'))
+    .pipe(babel({
+        presets: ['@babel/preset-env']
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest('build/js/'));
+    done();
+  });
+  
+gulp.task('css', function(done) {
+  gulp.src('css/*.css')
+    .pipe(concat('styles.css'))
+    .pipe(minify())
+    .pipe(gulp.dest('build/css/'));
+  done();
+});
+
+gulp.task('assets', function(done) {
+  gulp.src('assets/**/*')
+    .pipe(gulp.dest('build/assets/'));
+  done();
+});
+
+gulp.task('html', function(done) {
+  gulp.src('index.html')
+    .pipe(gulp.dest('build/'));
+  done();
+});
+
+
+gulp.task('default', gulp.series('css', 'js', 'assets', 'html', function (done) {
+  done();
+  console.log('Build Done !!!');
+}));`,
+pkgJson: (options) => `{
+  "name": "${options.name}",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1",
+    "build": "./node_modules/.bin/gulp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^3.0.2"
+  }
+}`,
+gitIgnore: `
+# OSX
+.DS_Store
+
+# npm
+node_modules/
+
+# build
+build/
+`
 };

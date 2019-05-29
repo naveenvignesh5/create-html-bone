@@ -15,7 +15,10 @@ let createFile = (filePath, data) => {
 
 let copyFile = (src, dest) => fs.copyFileSync(src, dest);
 
+let mkdir = (path) => fs.mkdirSync(path);
+
 module.exports = {
     createFile,
     copyFile,
+    mkdir,
 };

@@ -19,6 +19,7 @@ Options:
   -n, --name [value]  Name of the project
   -c, --css [value]   CSS Framework (bulma, bootstrap, materialize)
   -j, --jquery        Generate js with JQuery template
+  -g, --gulp          Generate gulp file
   -h, --help          output usage information
 ```
 
@@ -27,12 +28,19 @@ Options:
 create-html-bone -n demo -c bulma -jquery
 
 create-html-bone --name demo -c bootstrap
+
+create-html-bone --name demo --gulp
 ```
 
 **Generating Template from Interactive Console**
 
 ![](https://github.com/naveenvignesh5/create-html-template/blob/master/demo/demo.gif?raw=true)
 
+**Building with default gulp script**
+
+```shell
+npm run build
+```
 
 ### Authors
 
