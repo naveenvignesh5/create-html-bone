@@ -1,12 +1,16 @@
 {
   "name": "create-html-bone",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Basic CLI to generate HTML Boilerplate",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/",
     "publish": "./tasks/publish.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:naveenvignesh5/create-html-bone.git"
   },
   "keywords": [
     "cli",
