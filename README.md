@@ -2,6 +2,8 @@
 
 Simple CLI to generate boiler plate for basic html projects.
 
+**[NPM Listing](https://www.npmjs.com/package/create-html-bone)**
+
 ### Installation
 
 ```shell
@@ -48,7 +50,7 @@ npm run build
 
 ### License
 
-This project is licensed unser ISC License - see the [License.md](./License.md) file for details.
+This project is licensed unser ISC License - see the [License.md](https://github.com/naveenvignesh5/create-html-template/blob/master/License.md) file for details.
 
 ### Acknowledgments
 

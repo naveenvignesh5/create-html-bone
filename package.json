@@ -1,6 +1,6 @@
 {
   "name": "create-html-bone",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Basic CLI to generate HTML Boilerplate",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "terminal",
     "css"
   ],
-  "author": "",
+  "author": "Naveen Vignesh.B",
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.2",
