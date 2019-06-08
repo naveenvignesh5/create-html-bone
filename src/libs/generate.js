@@ -37,22 +37,30 @@ const generateCSS = (app) => {
 };
 
 const generateAuxFiles = (app, options = {}) => {
-    fileUtil.copyFile(`${__dirname}/../assets/favicon.ico`, `${process.cwd()}/${app}/favicon.ico`);
     let parentDir = `${process.cwd()}/${app}`;
+    fileUtil.copyFile(`${__dirname}/../assets/favicon.ico`, `${parentDir}/favicon.ico`);
 
+    if (!options.otherOptions) options.otherOptions = [];
+    
     // generating gulp file
-    if (options.gulp) {
+    if (options.gulp || options.otherOptions.includes('Gulp')) {
         fileUtil.createFile(`${parentDir}/gulpfile.js`, templates.gulp);
         fileUtil.createFile(`${parentDir}/package.json`, templates.pkgJson({ name: app }));
         fileUtil.createFile(`${parentDir}/.gitignore`, templates.gitIgnore)
 
         fileUtil.mkdir(`${process.cwd()}/${app}/assets`);
     }
-};
 
-// const generateHeroku = (app) => {
-//     fileUtil
-// }
+    try {
+        // generating heroku config
+        if (options.heroku || options.otherOptions.includes('Heroku')) {
+            fileUtil.createFile(`${parentDir}/index.php`, `<?php header( 'Location: ${options.otherOptions.includes('Gulp') ? "/build/home.html" : "/home.html"}' );  ?>`);
+            fileUtil.moveFile(`${parentDir}/index.html`,`${parentDir}/home.html`);
+        }
+    } catch (err) {
+        console.log('heroku error', err);
+    }
+};
 
 module.exports = {
     generateHTML,

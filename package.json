@@ -31,5 +31,8 @@
   },
   "bin": {
     "create-html-bone": "./src/index.js"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
   }
 }

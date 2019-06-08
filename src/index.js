@@ -12,8 +12,9 @@ program
     .option('-c, --css [value]', "CSS Framework (Bootstrap 4, Bulma, Materialize, Pure)")
     .option('-j, --jquery', "Generate js with JQuery template")
     .option('-g, --gulp', "Generate gulp file")
+    .option('-k, --heroku', "Generate Heroku Config")
     .parse(process.argv);
 
-const { css = '', name = '', jquery = false } = program;
+const { name = '' } = program;
 if ((name && validateName(name))) runByCommandLine(program);
 else runByInquirer();

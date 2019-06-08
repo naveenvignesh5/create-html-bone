@@ -53,9 +53,10 @@ let runByInquirer = () => {
                     message: "Generate with jQuery Templated javascript",
                 },
                 {
-                    type: "confirm",
-                    name: "gulp",
-                    message: "Generate with gulp file",
+                    type: "checkbox",
+                    name: "otherOptions",
+                    message: "Select Optional features",
+                    choices: ["Gulp", "Heroku"]
                 }
             ]);
     
@@ -69,6 +70,7 @@ let runByInquirer = () => {
             logSuccess("Template has been generated.");
         } catch (err) {
             logError(err);
+            
         }
     });
 };
