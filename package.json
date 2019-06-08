@@ -1,6 +1,6 @@
 {
   "name": "create-html-bone",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Basic CLI to generate HTML Boilerplate",
   "main": "index.js",
   "scripts": {
