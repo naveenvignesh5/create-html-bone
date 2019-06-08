@@ -19,9 +19,10 @@ create-html-bone -h
 Options:
   -V, --version       output the version number
   -n, --name [value]  Name of the project
-  -c, --css [value]   CSS Framework (bulma, bootstrap, materialize)
+  -c, --css [value]   CSS Framework (Bootstrap 4, Bulma, Materialize, Pure)
   -j, --jquery        Generate js with JQuery template
   -g, --gulp          Generate gulp file
+  -k, --heroku        Generate Heroku Config
   -h, --help          output usage information
 ```
 
@@ -36,13 +37,19 @@ create-html-bone --name demo --gulp
 
 **Generating Template from Interactive Console**
 
-![](https://github.com/naveenvignesh5/create-html-template/blob/master/demo/demo.gif?raw=true)
+![](https://github.com/naveenvignesh5/create-html-template/blob/master/demo/v1.1.0.gif?raw=true)
 
 **Building with default gulp script**
 
 ```shell
 npm run build
 ```
+
+**Heroku Publish**
+
+Follow [this](https://devcenter.heroku.com/articles/getting-started-with-php#deploy-the-app) tutorial. 
+
+The boilerplate generates a basic PHP application that is to be deployed to heroku.
 
 ### Authors
 

@@ -149,7 +149,7 @@ module.exports = {
 `(function() {
   console.log("Hello World  !!!");
 })();`,
-  gulp: `const gulp = require('gulp');
+  gulp: (options) => `const gulp = require('gulp');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const minify = require('gulp-minify-css');
@@ -181,7 +181,7 @@ gulp.task('assets', function(done) {
 });
 
 gulp.task('html', function(done) {
-  gulp.src('index.html')
+  gulp.src('${(options.heroku || options.otherOptions.includes('Heroku')) ? 'home.html' : 'index.html'}')
     .pipe(gulp.dest('build/'));
   done();
 });

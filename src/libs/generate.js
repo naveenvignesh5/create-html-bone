@@ -44,7 +44,7 @@ const generateAuxFiles = (app, options = {}) => {
     
     // generating gulp file
     if (options.gulp || options.otherOptions.includes('Gulp')) {
-        fileUtil.createFile(`${parentDir}/gulpfile.js`, templates.gulp);
+        fileUtil.createFile(`${parentDir}/gulpfile.js`, templates.gulp(options));
         fileUtil.createFile(`${parentDir}/package.json`, templates.pkgJson({ name: app }));
         fileUtil.createFile(`${parentDir}/.gitignore`, templates.gitIgnore)
 
