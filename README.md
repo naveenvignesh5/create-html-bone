@@ -1,8 +1,10 @@
 ## Basic HTML Boilerplate Generator
 
-Simple CLI to generate boiler plate for basic html projects.
+[![Build Status](https://travis-ci.com/naveenvignesh5/create-html-bone.svg?branch=master)](https://travis-ci.com/naveenvignesh5/create-html-bone)
+[![NPM Downloads](https://img.shields.io/npm/dw/create-html-bone.svg)](https://img.shields.io/npm/dw/create-html-bone.svg)
+[![NPM Version](https://img.shields.io/npm/v/create-html-bone.svg)](https://img.shields.io/npm/v/create-html-bone.svg)
 
-**[NPM Listing](https://www.npmjs.com/package/create-html-bone)**
+Simple CLI to generate boiler plate for basic html projects.
 
 ### Installation
 
