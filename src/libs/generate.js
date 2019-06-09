@@ -38,7 +38,16 @@ const generateCSS = (app) => {
 
 const generateAuxFiles = (app, options = {}) => {
     let parentDir = `${process.cwd()}/${app}`;
-    fileUtil.copyFile(`${__dirname}/../assets/favicon.ico`, `${parentDir}/favicon.ico`);
+    let destFavicon = `${parentDir}/favicon.ico`;
+    let assets = `${process.cwd()}/${app}/assets`;
+
+    if (!fileUtil.filePresent(destFavicon)) {
+        fileUtil.copyFile(`${__dirname}/../assets/favicon.ico`, destFavicon);
+    }
+    
+    if (!fileUtil.filePresent(assets)) {
+        fileUtil.mkdir(assets);
+    }
 
     if (!options.otherOptions) options.otherOptions = [];
     
@@ -47,8 +56,6 @@ const generateAuxFiles = (app, options = {}) => {
         fileUtil.createFile(`${parentDir}/gulpfile.js`, templates.gulp(options));
         fileUtil.createFile(`${parentDir}/package.json`, templates.pkgJson({ name: app }));
         fileUtil.createFile(`${parentDir}/.gitignore`, templates.gitIgnore)
-
-        fileUtil.mkdir(`${process.cwd()}/${app}/assets`);
     }
 
     try {

@@ -15,6 +15,8 @@ let createFile = (filePath, data) => {
     }
 };
 
+let filePresent = (src) => fs.existsSync(src);
+
 let copyFile = (src, dest) => fs.copyFileSync(src, dest);
 
 let moveFile = (src, dest) => fs.renameSync(src, dest);
@@ -25,5 +27,6 @@ module.exports = {
     createFile,
     copyFile,
     moveFile,
+    filePresent,
     mkdir,
 };
