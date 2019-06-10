@@ -62,6 +62,7 @@ const generateAuxFiles = (app, options = {}) => {
         // generating heroku config
         if (options.heroku || options.otherOptions.includes('Heroku')) {
             fileUtil.createFile(`${parentDir}/index.php`, `<?php header( 'Location: ${options.otherOptions.includes('Gulp') ? "/build/home.html" : "/home.html"}' );  ?>`);
+            fileUtil.createFile(`${parentDir}/composer.json`, '{}');
             fileUtil.moveFile(`${parentDir}/index.html`,`${parentDir}/home.html`);
         }
     } catch (err) {

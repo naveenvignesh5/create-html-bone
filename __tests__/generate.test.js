@@ -1,6 +1,18 @@
 const { readFileSync } = require('fs');
-const { generateCSS, generateJS, generateAuxFiles } = require('../src/libs/generate');
+const { generateHTML, generateCSS, generateJS, generateAuxFiles } = require('../src/libs/generate');
 const template = require('../src/templates/template');
+
+describe('testing generateHTML', () => {
+    it('generates index.html', () => {
+        try {
+            generateHTML('testProject');
+            expect(readFileSync(`${__dirname}/../testProject/index.html`).toString())
+                .toBe(template.basic.html(false));
+        } catch (err) {
+            throw err;
+        }
+    });
+});
 
 describe('testing generateCSS', () => {
     it('generates styles.css file', () => {
@@ -51,6 +63,17 @@ describe('testing generateAuxFiles', () => {
 
     it('generates gulpfile.js via inquirer', () => {
         let options = { otherOptions: [ 'Gulp' ] };
+        try {
+            generateAuxFiles('testProject', options);
+            const gulpContent = readFileSync(gulpFile).toString();
+            expect(gulpContent).toBe(template.gulp(options));
+        } catch (err) {
+            throw err;
+        }
+    });
+
+    it('generates heroku deployment files via commander', () => {
+        let options = { otherOptions: [], heroku: false };
         try {
             generateAuxFiles('testProject', options);
             const gulpContent = readFileSync(gulpFile).toString();
